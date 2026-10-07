@@ -32,12 +32,16 @@ svg{display:block}
 .gh svg{width:39px;height:39px;fill:#fff}
 
 /* ---------- Hero ---------- */
-.hero{position:relative;min-height:982px;background:linear-gradient(180deg,#0a1022 0%,#0c1426 55%,var(--bg) 100%);overflow:hidden}
+.hero{position:relative;min-height:982px;background:linear-gradient(180deg,#0a1022 0%,#0c1426 55%,var(--bg) 100%)}
 .hero::before{content:"";position:absolute;width:873px;height:873px;left:21%;top:-313px;border-radius:50%;background:var(--accent);opacity:.1;filter:blur(40px)}
-.hero-inner{position:relative;max-width:1512px;margin:0 auto;min-height:982px}
-.hero-copy{position:absolute;left:14%;top:327px;width:min(627px,44%)}
-.hero h1{margin:0 0 26px;font-size:clamp(40px,4.2vw,64px);line-height:1.2;font-weight:600}
-.hero h1 span{color:#2f5bc4;color:var(--accent);filter:brightness(1.7)}
+.hero-inner{position:relative;max-width:1512px;margin:0 auto;min-height:982px;display:flex;align-items:center;padding:80px 0 200px}
+.hero-copy{width:44%;max-width:560px;margin-left:calc(8% + 70px)}
+.hero h1{margin:0 0 26px;font-size:clamp(38px,3.9vw,56px);line-height:1.2;font-weight:600;white-space:nowrap}
+.hero h1 .name{color:#2f5bc4;color:var(--accent);filter:brightness(1.7)}
+.hello{position:relative;display:block;height:1.05em}
+.hello .greet{position:absolute;left:0;top:0;white-space:nowrap;font-family:'Ephesis','Apple Chancery','Segoe Script',cursive;font-weight:400;color:var(--text);will-change:clip-path,opacity,transform}
+@keyframes greetIn{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes greetOut{from{opacity:1;transform:translateY(0)}to{opacity:0;transform:translateY(-.3em)}}
 .hero p{margin:0;max-width:590px;font-size:14px}
 .btns{display:flex;flex-wrap:wrap;gap:19px;margin-top:38px}
 .btn{display:inline-flex;align-items:center;gap:12px;height:55px;padding:0 23px;border-radius:30px;font-size:14px;transition:transform .2s,filter .2s}
@@ -50,7 +54,7 @@ svg{display:block}
 .hero-photo svg,.hero-photo img{width:100%;height:100%;border-radius:inherit;object-fit:cover;display:block}
 
 /* ---------- Sections ---------- */
-section{position:relative}
+section{position:relative;z-index:1}
 .sec-title{font-family:var(--pixel);font-weight:400;font-size:clamp(40px,6vw,64px);line-height:1.1;margin:0;letter-spacing:.04em;word-spacing:.35em}
 .sec-title em{font-style:normal;color:var(--accent)}
 .rule{width:min(908px,calc(100% - 2*var(--pad)));height:0;border:0;border-top:.2px solid rgba(255,255,255,.3);margin:0 auto}
@@ -125,7 +129,7 @@ a.info:hover{background:rgba(255,255,255,.07)}
 /* ---------- Tablet ---------- */
 @media (max-width:1100px){
   .hero,.hero-inner{min-height:900px}
-  .hero-copy{left:8%;width:48%;top:300px}
+  .hero-copy{margin-left:5%;width:46%;max-width:480px}
   .hero-circle{width:640px;height:640px;left:46%;top:430px}
   .hero-photo{left:56%;top:240px;width:36%}
   .grid{gap:40px;margin-top:100px}
@@ -146,8 +150,8 @@ a.info:hover{background:rgba(255,255,255,.07)}
   .hero-inner{display:flex;flex-direction:column;padding:120px 20px 0}
   .hero-photo{position:relative;left:auto;top:auto;width:min(300px,72vw);align-self:center;order:-1;margin-bottom:36px;z-index:2}
   .hero-circle{width:120vw;height:120vw;left:auto;right:-45vw;top:110px}
-  .hero-copy{position:relative;left:auto;top:auto;width:100%;z-index:2;padding-bottom:80px}
-  .hero h1{font-size:44px}
+  .hero-copy{width:100%;max-width:none;margin-left:0;padding-bottom:80px}
+  .hero h1{font-size:clamp(24px,7.6vw,44px)}
   .btn{height:50px}
 
   .about{padding:90px 20px 70px}
