@@ -236,9 +236,10 @@
     function measureOrbit() {
       orbit = null;
       photoEl.style.transform = '';
-      if (window.matchMedia('(max-width:760px)').matches) return;
-      const c = circleEl.getBoundingClientRect();
-      const p = photoEl.getBoundingClientRect();
+      if (window.matchMedia('(max-width:820px)').matches) return;
+  const c = circleEl.getBoundingClientRect();
+  const p = photoEl.getBoundingClientRect();
+  if(!c.width || !p.width) return;
       const cx = c.left + c.width / 2, cy = c.top + c.height / 2;
       const offX = p.left + p.width / 2 - cx;
       const offY = p.top + p.height / 2 - cy;
