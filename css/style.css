@@ -568,6 +568,18 @@ section {
   border-radius: 50%;
   background: #1d3a8a;
 }
+.shot--img {
+  background: var(--bg-deep);
+}
+.shot--img img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
 .card-body {
   padding: 30px 20px 24px;
   display: flex;
@@ -733,31 +745,33 @@ section {
 
 /* --- Entry: unboxed editorial block with accent bracket --- */
 .tl-card {
+  display: block;
   position: relative;
   border-radius: 14px;
   padding: 28px 24px 24px;
-  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 .tl-item:nth-child(odd) .tl-card {
   border-right: 3px solid rgba(255, 255, 255, 0.16);
   border-top-right-radius: 2px;
   border-bottom-right-radius: 2px;
+  transition: border-color 0.3s ease;
 }
 .tl-item:nth-child(even) .tl-card {
   border-left: 3px solid rgba(255, 255, 255, 0.16);
   border-top-left-radius: 2px;
   border-bottom-left-radius: 2px;
+  transition: border-color 0.3s ease;
 }
-.tl-card:hover {
-  background: rgba(255, 255, 255, 0.028);
-  transform: translateY(-5px);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+
+/* --- Hover: only the accent bracket + title underline light up --- */
+.tl-card:hover h3 {
+  text-decoration-color: rgba(109, 143, 255, 0.95);
 }
 .tl-item:nth-child(odd) .tl-card:hover {
-  border-right-color: rgba(255, 255, 255, 0.38);
+  border-right-color: rgba(109, 143, 255, 0.9);
 }
 .tl-item:nth-child(even) .tl-card:hover {
-  border-left-color: rgba(255, 255, 255, 0.38);
+  border-left-color: rgba(109, 143, 255, 0.9);
 }
 
 /* --- Node filler: tiny tick bridging accent bar to the glowing node --- */
@@ -789,6 +803,10 @@ section {
   font-size: 21px;
   font-weight: 400;
   line-height: 1.4;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 4px;
+  transition: text-decoration-color 0.3s ease;
 }
 
 /* --- Chips row with hairline divider --- */
@@ -855,9 +873,6 @@ section {
     border-bottom-left-radius: 2px;
     border-top-right-radius: 14px;
     border-bottom-right-radius: 14px;
-  }
-  .tl-item:nth-child(odd) .tl-card:hover {
-    border-left-color: rgba(255, 255, 255, 0.38);
   }
   .tl-card {
     padding: 28px 18px 20px;

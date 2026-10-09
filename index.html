@@ -164,7 +164,7 @@
 
         <!-- 1 -->
         <article class="tl-item" data-reveal>
-          <div class="tl-card">
+          <a class="tl-card" href="https://paiidev.github.io/paii-cafe/" target="_blank" rel="noopener noreferrer">
             <span class="tl-time">Second Year - First Semester</span>
             <h3>PaiiCafe</h3>
             <div class="tl-chips">
@@ -173,7 +173,7 @@
               <span class="tl-chip tl-chip--focus">CSS</span>
             </div>
             <p>Designed and developed a static, responsive web application for a cafe, focusing on UI/UX fundamentals and modern web design principles.</p>
-          </div>
+          </a>
         </article>
 
         <!-- 2 -->
@@ -355,32 +355,63 @@
     });
 
     // ----- Projects -----
-    const projects = Array.from({ length: 4 }, () => ({
-      title: 'AJOCNS',
-      desc: 'A role-driven academic and career platform connecting students, mentors, external partners and administrators around job posts, applications and account approval flows.',
-      tags: ['ASP.NET Core MVC', 'MSSQL', 'Bootstrap'],
-      code: '#', demo: '#'
-    }));
+    const projects = [
+      {
+        title: 'AJOCNS',
+        desc: 'A role-driven academic and career platform connecting students, mentors, external partners and administrators around job posts, applications and account approval flows.',
+        tags: ['ASP.NET Core MVC', 'MSSQL', 'Bootstrap'],
+        image: 'assets/ajocns.png',
+        code: 'https://github.com/paiiDev/AJOCNS',
+        demo: '#'
+      },
+      {
+        title: 'POS Management System',
+        desc: 'A full-stack Point of Sale web application for small businesses — streamlining sales, inventory management and user administration with role-based access control and a clean N-layered architecture.',
+        tags: ['ASP.NET Core MVC', 'EF Core', 'SQL Server'],
+        image: 'assets/paii-pos.png',
+        code: 'https://github.com/paiiDev/POS-Management-System',
+        demo: '#'
+      },
+      {
+        title: 'Digital Wallet API',
+        desc: 'A secure ASP.NET Core REST API for digital wallets — peer-to-peer transfers with ACID database transactions, JWT authentication and paginated, filterable transaction history.',
+        tags: ['ASP.NET Core Web API', 'EF Core', 'JWT'],
+        image: 'assets/digital-wallet-api.png',
+        code: 'https://github.com/paiiDev/DigitalWallet.API',
+        demo: '#'
+      },
+      {
+        title: 'Blood Donation Management System',
+        desc: 'A blood donation management platform connecting donors, recipients and blood banks — built on a clean N-layered .NET architecture.',
+        tags: ['ASP.NET Core MVC', 'EF Core', 'SQL Server'],
+        image: 'assets/blood-donation.png',
+        code: 'https://github.com/paiiDev/Blood-Donation-Management-System',
+        demo: '#'
+      }
+    ];
     const codeIcon = '<svg class="fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5A11.500 11.500 0 0 0 .5 12c0 5.080 3.290 9.390 7.860 10.910.58.1.79-.25.79-.56v-2c-3.200.7-3.880-1.360-3.880-1.360-.52-1.330-1.280-1.690-1.280-1.690-1.040-.71.08-.7.08-.7 1.150.08 1.760 1.190 1.760 1.190 1.030 1.760 2.700 1.250 3.360.96.1-.75.4-1.250.73-1.540-2.550-.29-5.240-1.280-5.240-5.690 0-1.260.45-2.280 1.190-3.090-.12-.29-.52-1.460.11-3.050 0 0 .97-.31 3.170 1.180a11 11 0 0 1 5.770 0c2.200-1.490 3.170-1.180 3.170-1.180.63 1.590.23 2.760.11 3.050.74.81 1.190 1.830 1.190 3.090 0 4.420-2.690 5.390-5.250 5.680.41.36.78 1.060.78 2.140v3.170c0 .31.21.67.8.56A11.500 11.500 0 0 0 23.500 12 11.500 11.500 0 0 0 12 .5Z"/></svg>';
     const demoIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4v7a3 3 0 0 0 3 3h11m0 0-4-4m4 4-4 4"/></svg>';
     const grid = document.getElementById('grid');
     projects.forEach(p => {
-      grid.insertAdjacentHTML('beforeend', `
-  <article class="card reveal">
-    <div class="shot" role="img" aria-label="${p.title} preview">
+      const shot = p.image
+        ? `<div class="shot shot--img"><img src="${p.image}" alt="${p.title} preview" loading="lazy" decoding="async"></div>`
+        : `<div class="shot" role="img" aria-label="${p.title} preview">
       <div class="bar"><b>PUPL AJOCNS</b><span>Home</span><span>Opportunities</span><span>Career Events</span><span>Network</span><span>About us</span></div>
       <div class="pill">Alumni Job Opportunities</div>
       <h4>ချိတ်ဆက်<span>ရှာဖွေ</span>တိုးတက်</h4>
       <div class="tile t1"></div><div class="tile t2"></div><div class="tile t3"></div><div class="dot"></div>
-    </div>
+    </div>`;
+      grid.insertAdjacentHTML('beforeend', `
+  <article class="card reveal">
+    ${shot}
     <div class="card-body">
       <h3>${p.title}</h3>
       <p>${p.desc}</p>
       <div class="tags">${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
       <hr>
       <div class="links">
-        <a class="link" href="${p.code}">${codeIcon}Code</a>
-        <a class="link" href="${p.demo}">${demoIcon}Live demo</a>
+        <a class="link" href="${p.code}" target="_blank" rel="noopener noreferrer">${codeIcon}Code</a>
+        <a class="link" href="${p.demo}" target="_blank" rel="noopener noreferrer">${demoIcon}Live demo</a>
       </div>
     </div>
   </article>`);
