@@ -961,12 +961,12 @@ a.info:hover {
   top: 0;
 }
 .i-loc {
-  left: 50%;
-  top: 134px;
-}
-.i-ig {
   left: 68%;
   top: 272px;
+}
+.i-ig {
+  left: 50%;
+  top: 134px;
   border-style: dotted;
 }
 .script {
